@@ -2,10 +2,15 @@
   display: flex;
   flex-direction: column;
   margin: auto;
-  margin-top: 200px;
   width: 600px;
   background: #fff;
+  border-radius: 10px;
   padding-bottom: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Adicionando uma sombra para destacar o container */
 }
 
 .header {
@@ -19,41 +24,41 @@
 
 .text {
   color: #3c009d;
-  font-size: 48px;
+  font-size: 3vw; /* Usando vw para ajustar o tamanho do texto */
   font-weight: 700;
 }
 
 .underline {
-  width: 61px;
+  width: 13%; /* Usando porcentagem para ajustar a largura da linha */
   height: 6px;
   background: #3c009d;
   border-radius: 9px;
 }
 
 .inputs {
-  margin-top: 55px;
+  margin-top: 7vh; /* Usando vh para ajustar a margem superior */
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  gap: 3vh; /* Usando vh para ajustar o espaçamento entre os inputs */
 }
 
 .input {
   display: flex;
   align-items: center;
   margin: auto;
-  width: 480px;
+  width: 90%;
   height: 80px;
   background: #eaeaea;
   border-radius: 6px;
 }
 
 .input img {
-  margin: 0px 30px;
+  margin: 0px 3vw;
 }
 
 .input input {
   height: 50px;
-  width: 400px;
+  width: 100%;
   background: transparent;
   border: none;
   outline: none;
@@ -62,10 +67,10 @@
 }
 
 .forgot-password {
-  padding-left: 62px;
-  margin-top: 27px;
+  padding-left: 3vw; /* Usando vw para ajustar o padding */
+  margin-top: 2vh;
   color: #797979;
-  font-size: 18px;
+  font-size: 1vw; /* Usando vw para ajustar o tamanho do texto */
 }
 
 .forgot-password span {
@@ -75,20 +80,23 @@
 
 .submit-container {
   display: flex;
-  gap: 30px;
-  margin: 60px auto;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5vh; /* Usando vh para ajustar a margem superior */
+  gap: 3vw; /* Usando vw para ajustar o espaçamento entre os botões */
 }
 
 .submit {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 200px;
-  height: 59px;
   color: #fff;
   background: #4c00b4;
   border-radius: 50px;
-  font-size: 19px;
+  font-weight: 700;
+  width: 40%; /* Usando porcentagem para ajustar a largura do botão */
+  height: 10vh; /* Usando vh para ajustar a altura do botão */
+  font-size: 20px; /* Usando vw para ajustar o tamanho do texto */
   font-weight: 700;
   cursor: pointer;
 }

@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import './LoginSignup.css'
-import Axios from 'axios';
 
 import user_icon from '../Assets/person.png'
 import email_icon from '../Assets/email.png'
@@ -8,8 +7,10 @@ import password_icon from '../Assets/password.png'
 export const LoginSignup = () => {
 
   const [action, setAction] = useState("Sign Up")
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const password_confirmation = password;
   const handleLogin = async () => {
     try {
       const response = await fetch('http://localhost:3000/api/v1/authenticate', {
@@ -22,7 +23,31 @@ export const LoginSignup = () => {
           password 
         }),
       });
-      console.log(email, password);
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
+
+  const handleRegister = async () => {
+    try {
+      const data = {
+        data: {
+          attributes: {
+            name,
+            email,
+            password,
+            password_confirmation
+          }
+        }
+      };
+      const response = await fetch('http://localhost:3000/api/v1/users', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+      });
+      console.log(data.data)
     } catch (error) {
       console.error('Error:', error);
     }
@@ -37,7 +62,7 @@ export const LoginSignup = () => {
       <div className='inputs'>
         {action === "Login" ? <div></div> : <div className='input'>
           <img src={user_icon} alt=""/>
-          <input type='text' placeholder="Nome"/>
+          <input type='text' placeholder="Nome" value={name} onChange={(e) => setName(e.target.value)} />
         </div>}
         
         <div className='input'>
@@ -54,11 +79,11 @@ export const LoginSignup = () => {
 
       <div className='submit-container'>
           <div className={action==="Login" ? "submit gray" : "submit" } onClick={()=>{
-          if(action === 'Login') {
-            setAction("Sign Up")
-          } else {
-            
-          }
+            if(action === 'Login') {
+              setAction("Sign Up")
+            } else {
+              handleRegister();
+            }
           }}>
             Sign Up
           </div>
@@ -69,8 +94,8 @@ export const LoginSignup = () => {
             } else {
               handleLogin();
             }
-            }}>
-              Login
+          }}>
+            Login
           </div>
       </div>
     </div>
