@@ -11,46 +11,44 @@ export const LoginSignup = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const password_confirmation = password;
-  const handleLogin = async () => {
+  const sendRequest = async (url, method, data) => {
     try {
-      const response = await fetch('http://localhost:3000/api/v1/authenticate', {
-        method: 'POST',
+      const response = await fetch(`http://localhost:3000/api/v1/${url}`, {
+        method,
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ 
-          email, 
-          password 
-        }),
+        body: JSON.stringify(data),
       });
+      return response.json();
     } catch (error) {
       console.error('Error:', error);
     }
   };
-
+  
+  const handleLogin = async () => {
+    const data = {
+      email,
+      password,
+    };
+  
+    await sendRequest('authenticate', 'POST', data);
+  };
+  
   const handleRegister = async () => {
-    try {
-      const data = {
-        data: {
-          attributes: {
-            name,
-            email,
-            password,
-            password_confirmation
-          }
-        }
-      };
-      const response = await fetch('http://localhost:3000/api/v1/users', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
+    const data = {
+      data: {
+        attributes: {
+          name,
+          email,
+          password,
+          password_confirmation,
         },
-        body: JSON.stringify(data)
-      });
-      console.log(data.data)
-    } catch (error) {
-      console.error('Error:', error);
-    }
+      },
+    };
+  
+    const response = await sendRequest('users', 'POST', data);
+    console.log(response.data);
   };
 
   return (
