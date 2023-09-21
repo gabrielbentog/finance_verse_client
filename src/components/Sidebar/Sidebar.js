@@ -30,13 +30,21 @@ import { MdLogout, MdOutlineAnalytics } from "react-icons/md";
 import { BsPeople } from "react-icons/bs";
 
 import { ThemeContext } from "./../../App";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Sidebar = () => {
     const searchRef = useRef(null);
     const { setTheme, theme } = useContext(ThemeContext);
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const { pathname } = useLocation();
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        if (localStorage.getItem('user')) {
+            localStorage.removeItem('user');
+        }
+        navigate('/login');
+    };
 
     const searchClickHandler = () => {
         if (!sidebarOpen) {
@@ -90,7 +98,11 @@ const Sidebar = () => {
             <SDivider />
             {secondaryLinksArray.map(({ icon, label }) => (
                 <SLinkContainer key={label}>
-                    <SLink to="/" style={!sidebarOpen ? { width: `fit-content` } : {}}>
+                    <SLink
+                        to={label === 'Logout' ? '/login' : '/'}
+                        style={!sidebarOpen ? { width: `fit-content` } : {}}
+                        onClick={label === 'Logout' ? handleLogout : null}
+                    >
                         <SLinkIcon>{icon}</SLinkIcon>
                         {sidebarOpen && <SLinkLabel>{label}</SLinkLabel>}
                     </SLink>
