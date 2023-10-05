@@ -33,7 +33,7 @@ export const LoginSignup = () => {
       const isLoggedIn = localStorage.getItem('user');
 
       if (isLoggedIn) {
-        navigate('/home');
+        navigate('/');
       }
     };
 
@@ -53,7 +53,7 @@ export const LoginSignup = () => {
         localStorage.setItem('user', JSON.stringify(response.data)); // Armazene o usuário no localStorage
 
         if (localStorage.getItem("user")) {
-          navigate('/home');
+          navigate('/');
         };
       }
 

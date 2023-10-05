@@ -1,29 +1,19 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
-import { LoginSignup } from './pages/LoginSignup/LoginSignup';
 import { Helmet } from "react-helmet";
 import { ThemeProvider } from "styled-components";
 import Layout from "./components/Layout/Layout";
 import AppRoutes from "./AppRoutes";
 import { GlobalStyle } from "./styles/globalStyles";
 import { darkTheme, lightTheme } from "./styles/theme";
+import './App.css';
 
 export const ThemeContext = React.createContext(null);
 
 const App = () => {
   const [theme, setTheme] = useState("light");
-  const [isLoggedIn, setIsLoggedIn] = useState(false);  // State to track login status
   const themeStyle = theme === "light" ? lightTheme : darkTheme;
   const navigate = useNavigate();
-
-  const handleLogin = () => {
-    const user = localStorage.getItem('user');
-    if (user) {
-      setIsLoggedIn(true);
-      navigate('/home');
-    }
-  };
 
   return (
     <ThemeContext.Provider value={{ setTheme, theme }}>
