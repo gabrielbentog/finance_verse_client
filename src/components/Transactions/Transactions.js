@@ -6,7 +6,7 @@ const Transactions = () => {
   return (
     <div className="grid-one-item grid-common grid-c2">
       <div className="grid-c-title">
-        <h3 className="grid-c-title-text">All Transactions</h3>
+        <h3 className="grid-c-title-text">Transações</h3>
         <button className="grid-c-title-icon">
             <img src={ iconsImgs.plus } />
         </button>
