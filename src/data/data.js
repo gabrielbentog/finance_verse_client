@@ -1,5 +1,5 @@
 import { iconsImgs } from "../utils/images";
-import { personsImgs } from "../utils/images";
+import { itemImgs } from "../utils/images";
 
 export const navigationLinks = [
     { id: 1, title: 'Home', image: iconsImgs.home },
@@ -17,22 +17,22 @@ export const navigationLinks = [
 export const transactions = [
     {
         id: 11, 
-        name: "Sarah Parker",
-        image: personsImgs.person_four,
+        name: "Netflix",
+        image: itemImgs.dollar_sign,
         date: "23/12/04",
         amount: 22000
     },
     {
         id: 12, 
-        name: "Krisitine Carter",
-        image: personsImgs.person_three,
+        name: "Nubank",
+        image: itemImgs.dollar_sign,
         date: "23/07/21",
         amount: 20000
     },
     {
         id: 13, 
-        name: "Irene Doe",
-        image: personsImgs.person_two,
+        name: "Contas",
+        image: itemImgs.dollar_sign,
         date: "23/08/25",
         amount: 30000
     }
@@ -128,7 +128,7 @@ export const subscriptions = [
 export const savings = [
     {
         id: 27,
-        image: personsImgs.person_one,
+        image: itemImgs.dollar_sign,
         saving_amount: 250000,
         title: "Pay kid bro’s fees",
         date_taken: "23/12/22",

@@ -13,6 +13,7 @@
   --clr-white: #fff;
   --clr-black: #000;
   --clr-pumpkin: #fe6c00;
+  --clr-lavander: #eabfff;
   --clr-silver: #a8a5a6;
   --clr-silver-v1: #bdbabb;
   --clr-scarlet: #fe1e00;
@@ -55,14 +56,14 @@ button {
 .text-silver-v1 {
   color: var(--clr-silver-v1);
 }
-.text-scarlet {
-  color: var(--clr-scarlet);
+.text-lavander {
+  color: #54007d;
 }
 .text-green {
   color: var(--clr-green);
 }
 .bg-jet {
-  background: var(--clr-white);
+  background: var(--clr-silver-v1);
 }
 
 .text-sm {
@@ -94,7 +95,7 @@ button {
 }
 .grid-c-title-text {
   font-weight: 400;
-  color: var(--clr-silver);
+  color: var(--clr-white);
 }
 .grid-c-title-icon img {
   width: 24px;
