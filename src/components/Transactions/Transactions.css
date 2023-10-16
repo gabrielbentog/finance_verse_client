@@ -39,3 +39,8 @@
 .grid-c2 .grid-item-r span {
   font-weight: 500;
 }
+
+.scrollable {
+  max-height: 300px; /* Altura máxima para ativar a rolagem */
+  overflow-y: auto; /* Adiciona a barra de rolagem vertical quando necessário */
+}

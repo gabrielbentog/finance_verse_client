@@ -50,7 +50,7 @@ export const LoginSignup = () => {
     try {
       const response = await sendRequest('authenticate', 'POST', data);
       if (response && response.data) {
-        localStorage.setItem('user', JSON.stringify(response.data)); // Armazene o usuário no localStorage
+        localStorage.setItem('user', JSON.stringify(response.data.attributes)); // Armazene o usuário no localStorage
 
         if (localStorage.getItem("user")) {
           navigate('/');
@@ -75,7 +75,6 @@ export const LoginSignup = () => {
     };
 
     const response = await sendRequest('users', 'POST', data);
-    console.log(response.data);
   };
 
   return (
